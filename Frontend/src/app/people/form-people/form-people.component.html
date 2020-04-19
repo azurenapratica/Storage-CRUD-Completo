@@ -1,0 +1,42 @@
+<form class="needs-validation" novalidate [formGroup]="form">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Manage <b>People</b></h2>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name" />
+            <div class="text-danger" *ngIf="hasError('name') && hasError('name')['required']">
+                This field is required!
+            </div>
+            <div class="text-danger" *ngIf="hasError('name') && hasError('name')['minlength']">
+                This field must be at least 3 characters!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">E-mail: </label>
+            <input type="text" class="form-control" id="email" placeholder="E-mail" formControlName="email" />
+            <div class="text-danger" *ngIf="hasError('email') && hasError('email')['required']">
+                This field is required!
+            </div>
+            <div class="text-danger" *ngIf="hasError('email') && hasError('email')['minlength']">
+                This field must be at least 3 characters!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Picture: </label>
+            <input type="file" class="custom-file-input" id="picture" (change)="fileChange($event)" accept=".jpeg,.jpg,.png" placeholder="Picture" />
+        </div>
+        <br />
+        <div>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save</button>
+            &nbsp;
+            <button type="button" class="btn btn-default" (click)="onCancel()">Cancel</button>
+        </div>
+        <br/>
+    </div>
+</form>

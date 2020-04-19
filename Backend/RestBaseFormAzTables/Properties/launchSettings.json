@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:57767",
+      "sslPort": 44339
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "person",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "RestBaseFormAzTables": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "DbConn": "BlobEndpoint=https://strazurenapratica.blob.core.windows.net/;QueueEndpoint=https://strazurenapratica.queue.core.windows.net/;FileEndpoint=https://strazurenapratica.file.core.windows.net/;TableEndpoint=https://strazurenapratica.table.core.windows.net/;SharedAccessSignature=sv=2019-02-02&ss=bt&srt=sco&sp=rwdlacu&se=2020-04-19T03:00:25Z&st=2020-04-18T19:00:25Z&spr=https&sig=XxxDlHtSS78z18%2BIbQ1jtE82T5Uij0VURR1wnS%2BQQeU%3D",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    }
+  }
+}

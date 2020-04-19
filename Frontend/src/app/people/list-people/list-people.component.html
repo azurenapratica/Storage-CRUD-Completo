@@ -1,0 +1,49 @@
+<div class="table-wrapper">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Manage <b>People</b></h2>
+            </div>
+            <div class="col-sm-6">
+                <a href="#" class="btn btn-success" [routerLink]="['new-person']"><i class="glyphicon glyphicon-plus"></i>
+                    <span>Add New Person</span></a>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped table-hover" *ngIf="people$ | async as people else loading">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>E-mail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of people">
+                <td><img src="{{ person.picture }}" class="avatar" alt="Avatar"></td>
+                <td>{{ person.name }}</td>
+                <td>{{ person.email }}</td>
+                <td>
+                    <a href="javascript:(0);" class="edit" data-toggle="modal"><i class="glyphicon glyphicon-pencil"
+                            data-toggle="tooltip" (click)="onEdit(person.rowKey)" title="Edit"></i></a>
+                    <a href="javascript:(0);" class="delete" data-toggle="modal"><i class="glyphicon glyphicon-remove"
+                            data-toggle="tooltip" (click)="onDelete(person.rowKey)" title="Delete"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ng-template #loading>
+        <span>Loading...</span>
+    </ng-template>
+</div>
+
+<ng-template #deleteModal>
+    <div class="modal-body text-center">
+        <p>Do you want to confirm?</p>
+        <button type="button" class="btn btn-default" (click)=onConfirmDelete()>Yes</button>
+        &nbsp;
+        <button type="button" class="btn btn-primary" (click)=onDeclineDelete()>No</button>
+    </div>
+</ng-template>
